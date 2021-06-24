@@ -21,16 +21,23 @@
         
         <div>
             <ul id="horizontal-list">
-                <a href="">
+                <a href="{{ url_for('site.home') }}">
                     <li>Car Collection</li>
                 </a>
-                
+                <a href="{{ url_for('site.profile') }}">
+                    <li>Profile</li>
+                </a>
+                {% if current_user.isauthenticated %}
+                <a href="{{ url_for('auth.logout') }}">
+                    <li>Log Out</li>
+                </a>
+                {% else %}
                 <a href="{{ url_for('auth.signin') }}">
                     <li>Sign In</li>
                 </a>
-
                 <a href="{{ url_for('auth.signup') }}">
                     <li>Sign Up Free</li>
+                {% endif %}
                 </a>
             </ul>
         </div>

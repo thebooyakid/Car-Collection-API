@@ -2,7 +2,22 @@
 
 {% block content %}
 
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for cat,msg in messages %}
+                {% if cat == 'user-created' %}
+                    <div class="alert alert-success">
+                        {{ msg }}
+                        <button type="button" class="close" data-dismiss = 'alert'>&times;</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
     <h1>This is the main page for our Car collection</h1>
-    <h2>I'm not sure where the car collection thing is going</h2>
-    <h3>So I don't really know what to put here at this point</h3>
+    <h2>Wanna get some car data?</h2>
+    <h3>This is the place</h3>
 {% endblock content %}
