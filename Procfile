@@ -1,0 +1,1 @@
+web: gunicorn vehicles:app --preload --timeout 60
